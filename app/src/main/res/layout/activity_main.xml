@@ -4,15 +4,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activiities.MainActivity.MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+    <Button
+        android:id="@+id/button2"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="288dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="120dp"
+        android:background="#F7FFF9"
+        android:backgroundTint="#CF1919"
+        android:foregroundTint="#259A46"
+        android:onClick="signOut"
+        android:text="Try Another Account"
+        android:textColor="#F10909"
+        android:textColorHighlight="#BA6565"
+        android:textColorHint="#B33E3E"
+        android:textColorLink="#E6E6E6"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    <Button
+        android:id="@+id/button5"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="288dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="52dp"
+        android:background="#4aff7a"
+        android:backgroundTint="#5CE864"
+        android:foregroundTint="#3AC561"
+        android:onClick="addNewRide"
+        android:text="Add New Ride"
+        android:textColor="#4CE30B"
+        android:textColorHighlight="#BA6565"
+        android:textColorHint="#B33E3E"
+        android:textColorLink="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView"
+        tools:ignore="TextContrastCheck" />
+
+    <EditText
+        android:id="@+id/introTextField"
+        android:layout_width="379dp"
+        android:layout_height="101dp"
+        android:editable="false"
+        android:text="Hey $Name$! Here are your avaliable rides:"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="306dp"
+        android:layout_height="317dp"
+        app:layout_constraintBottom_toTopOf="@+id/button5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/introTextField" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

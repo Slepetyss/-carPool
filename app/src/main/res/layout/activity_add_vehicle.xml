@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activiities.AddVehicle">
+
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="184dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:text="New Vehicle"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/selectImgBtn"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="288dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="20dp"
+        android:background="#4aff7a"
+        android:backgroundTint="#5CE864"
+        android:foregroundTint="#3AC561"
+        android:text="Select Image"
+        android:textColor="#4CE30B"
+        android:textColorHighlight="#BA6565"
+        android:textColorHint="#B33E3E"
+        android:textColorLink="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/selectImgBtn2"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="288dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="14dp"
+        android:background="#4aff7a"
+        android:backgroundTint="#5CE864"
+        android:foregroundTint="#3AC561"
+        android:onClick="addVehicle"
+        android:text="Add Vehicle"
+        android:textColor="#4CE30B"
+        android:textColorHighlight="#BA6565"
+        android:textColorHint="#B33E3E"
+        android:textColorLink="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectImgBtn"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="24dp"
+        android:text="Vehicle Type:"
+        android:textAlignment="textStart"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <Spinner
+        android:id="@+id/simpleSpinner2"
+        android:layout_width="164dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="349dp"
+        android:layout_height="407dp"
+        android:layout_marginTop="71dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11"
+        app:layout_constraintVertical_bias="0.0"></LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
