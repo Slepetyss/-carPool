@@ -2,8 +2,10 @@ package com.example.carpool.activiities.MainActivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -40,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Vehicle> vehiclesDB;
     RecyclerView recyclerView;
-
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,16 +77,20 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        context = this;
         retrieveDB();
+
     }
 
     /* ToDo:
         1) Retrieve all vehicles from firebase:
             1.1) Check vehicle type and assign it to each individual class (Done)
         2) Add all vehicles classes to an arrayList (Done)
-        3) Learn best method for using recyclerView
-        4) Create UI for recyclerView
-        5) Loop though vehicles arrayList and display them in recyclerView
+        3) Learn best method for using recyclerView (Done)
+        4) Create UI for recyclerView (Done)
+        5) Loop though vehicles arrayList and display them in recyclerView (Done)
+            5.1) Fix Weird small layout from recyclerview
         6) Make each view clickable
         7) Move to a different page after a view is clicked and display all info of vehicle there
             7.1) Loop though arrayList again to display info
@@ -93,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void retrieveDB() {
         vehiclesDB.clear();
+
 
         TaskCompletionSource<String> getAllRidesTask = new TaskCompletionSource<>();
         firestore.collection("Vehicles").whereEqualTo("open", true).get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
@@ -121,6 +128,9 @@ public class MainActivity extends AppCompatActivity {
                         }
                     }
                     System.out.println(vehiclesDB);
+                    MyAdapter myAdapter = new MyAdapter(context, vehiclesDB);
+                    recyclerView.setAdapter(myAdapter);
+                    recyclerView.setLayoutManager(new LinearLayoutManager(context));
                     getAllRidesTask.setResult(null);
                 } else {
                     Log.d("MainActivity", "Failed to retrieve info from DB: ", task.getException());
