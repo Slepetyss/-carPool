@@ -95,7 +95,7 @@ public class SecundaryActivity extends AppCompatActivity {
                         //What happens if array does not exist? --> add on user class
                         //Check for that
                         ArrayList<String> vehiclesID;
-                        if (document.get("ridersUIDs") != null) {
+                        if (document.get("bookedRides") != null) {
                             vehiclesID = (ArrayList<String>) document.get("bookedRides");
                         } else {
                             vehiclesID = new ArrayList<String>();
