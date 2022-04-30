@@ -83,20 +83,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    /* ToDo:
-        1) Retrieve all vehicles from firebase:
-            1.1) Check vehicle type and assign it to each individual class (Done)
-        2) Add all vehicles classes to an arrayList (Done)
-        3) Learn best method for using recyclerView (Done)
-        4) Create UI for recyclerView (Done)
-        5) Loop though vehicles arrayList and display them in recyclerView (Done)
-            5.1) Fix Weird small layout from recyclerview
-        6) Make each view clickable
-        7) Move to a different page after a view is clicked and display all info of vehicle there
-            7.1) Loop though arrayList again to display info
-        8) Book a ride (somehow no clue how)
-     */
-
     public void retrieveDB() {
         vehiclesDB.clear();
 

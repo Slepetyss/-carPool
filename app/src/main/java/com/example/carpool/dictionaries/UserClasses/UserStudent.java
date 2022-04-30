@@ -9,8 +9,8 @@ public class UserStudent extends User {
     public UserStudent() {
     }
 
-    public UserStudent(String uid, String name, String email, String userType, ArrayList<String> ownedVehicles, String graduatingYear) {
-        super(uid, name, email, userType, ownedVehicles);
+    public UserStudent(String uid, String name, String email, String userType, ArrayList<String> ownedVehicles, ArrayList<String> bookedRides, String graduatingYear) {
+        super(uid, name, email, userType, ownedVehicles, bookedRides);
         this.graduatingYear = graduatingYear;
     }
 

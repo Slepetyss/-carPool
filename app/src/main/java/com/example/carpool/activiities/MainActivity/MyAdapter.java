@@ -48,6 +48,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 Intent intent = new Intent(context, SecundaryActivity.class);
                 intent.putExtra("Name",vehicleDB.get(position).getOwner());
                 intent.putExtra("Available Sits",vehicleDB.get(position).getCapacity());
+                intent.putExtra("Vehicle ID",vehicleDB.get(position).getVehicleID());
                 context.startActivity(intent);
             }
         });

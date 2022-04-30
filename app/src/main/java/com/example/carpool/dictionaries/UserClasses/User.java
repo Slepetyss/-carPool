@@ -9,19 +9,21 @@ public class User {
     private String userType;
     private double priceMultiplier;
     private ArrayList<String> ownedVehicles;
+    private ArrayList<String> bookedRides;
 
     public User() {
 
     }
 
 
-    public User(String uid, String name, String email, String userType, ArrayList<String> ownedVehicles) {
+    public User(String uid, String name, String email, String userType, ArrayList<String> ownedVehicles, ArrayList<String> bookedRides) {
         this.uid = uid;
         this.name = name;
         this.email = email;
         this.userType = userType;
         this.priceMultiplier = 00.00;
         this.ownedVehicles = ownedVehicles;
+        this.bookedRides = bookedRides;
     }
 
     public String getUid() {
@@ -72,6 +74,14 @@ public class User {
         this.ownedVehicles = ownedVehicles;
     }
 
+    public ArrayList<String> getBookedRides() {
+        return bookedRides;
+    }
+
+    public void setBookedRides(ArrayList<String> bookedRides) {
+        this.bookedRides = bookedRides;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -81,6 +91,7 @@ public class User {
                 ", userType='" + userType + '\'' +
                 ", priceMultiplier=" + priceMultiplier +
                 ", ownedVehicles=" + ownedVehicles +
+                ", bookedRides=" + bookedRides +
                 '}';
     }
 }

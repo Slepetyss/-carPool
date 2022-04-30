@@ -9,8 +9,8 @@ public class UserParent extends User {
     public UserParent() {
     }
 
-    public UserParent(String uid, String name, String email, String userType, ArrayList<String> ownedVehicles, String amountOfChildren) {
-        super(uid, name, email, userType, ownedVehicles);
+    public UserParent(String uid, String name, String email, String userType, ArrayList<String> ownedVehicles,ArrayList<String> bookedRides, String amountOfChildren) {
+        super(uid, name, email, userType, ownedVehicles, bookedRides);
         this.amountOfChildren = amountOfChildren;
     }
 

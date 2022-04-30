@@ -9,8 +9,8 @@ public class UserWorker extends User {
     public UserWorker() {
     }
 
-    public UserWorker(String uid, String name, String email, String userType, ArrayList<String> ownedVehicles, String jobName) {
-        super(uid, name, email, userType, ownedVehicles);
+    public UserWorker(String uid, String name, String email, String userType, ArrayList<String> ownedVehicles, ArrayList<String> bookedRides, String jobName) {
+        super(uid, name, email, userType, ownedVehicles, bookedRides);
         this.jobName = jobName;
     }
 

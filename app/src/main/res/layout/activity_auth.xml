@@ -34,21 +34,31 @@
 
     <Button
         android:id="@+id/loginBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="108dp"
         android:layout_height="48dp"
         android:layout_marginTop="40dp"
+        android:background="#39FF53"
         android:onClick="logIn"
         android:text="Log In"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/editTextPassword"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
     <Button
         android:id="@+id/signupBtn"
+        style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="108dp"
         android:layout_height="48dp"
         android:layout_marginTop="40dp"
+        android:background="#437DF1"
         android:onClick="sinUp"
         android:text="Sign Up"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/editTextPassword"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 

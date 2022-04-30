@@ -175,31 +175,31 @@ public class UserInfo extends AppCompatActivity implements AdapterView.OnItemSel
 
         switch (selectedName) {
             case "Teacher":
-                UserTeacher userTeacher = new UserTeacher(userUid, userString, userEmail, selectedName, arrList, ((EditText) map.get("Math")).getText().toString());
+                UserTeacher userTeacher = new UserTeacher(userUid, userString, userEmail, selectedName, arrList, arrList, ((EditText) map.get("Math")).getText().toString());
                 System.out.println(userTeacher);
                 firestore.collection("Users").document(currentUser.getUid()).set(userTeacher);
                 switchPage();
                 break;
             case "Student":
-                UserStudent userStudent = new UserStudent(userUid, userString, userEmail, selectedName, arrList, ((EditText) map.get("2024")).getText().toString());
+                UserStudent userStudent = new UserStudent(userUid, userString, userEmail, selectedName, arrList, arrList, ((EditText) map.get("2024")).getText().toString());
                 System.out.println(userStudent);
                 firestore.collection("Users").document(currentUser.getUid()).set(userStudent);
                 switchPage();
                 break;
             case "Parent":
-                UserParent userParent = new UserParent(userUid, userString, userEmail, selectedName, arrList, ((EditText) map.get("2")).getText().toString());
+                UserParent userParent = new UserParent(userUid, userString, userEmail, selectedName, arrList, arrList, ((EditText) map.get("2")).getText().toString());
                 System.out.println(userParent);
                 firestore.collection("Users").document(currentUser.getUid()).set(userParent);
                 switchPage();
                 break;
             case "Worker":
-                UserWorker userWorker = new UserWorker(userUid, userString, userEmail, selectedName, arrList, ((EditText) map.get("Chief")).getText().toString());
+                UserWorker userWorker = new UserWorker(userUid, userString, userEmail, selectedName, arrList, arrList, ((EditText) map.get("Chief")).getText().toString());
                 System.out.println(userWorker);
                 firestore.collection("Users").document(currentUser.getUid()).set(userWorker);
                 switchPage();
                 break;
             case "Another":
-                UserAnother userAnother = new UserAnother(userUid, userString, userEmail, selectedName, arrList, ((EditText) map.get("I can back flip!")).getText().toString());
+                UserAnother userAnother = new UserAnother(userUid, userString, userEmail, selectedName, arrList, arrList, ((EditText) map.get("I can back flip!")).getText().toString());
                 System.out.println(userAnother);
                 firestore.collection("Users").document(currentUser.getUid()).set(userAnother);
                 switchPage();

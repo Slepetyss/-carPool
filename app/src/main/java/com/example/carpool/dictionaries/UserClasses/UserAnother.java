@@ -8,8 +8,8 @@ public class UserAnother extends User {
     public UserAnother() {
     }
 
-    public UserAnother(String uid, String name, String email, String userType, ArrayList<String> ownedVehicles, String extrainfo) {
-        super(uid, name, email, userType, ownedVehicles);
+    public UserAnother(String uid, String name, String email, String userType, ArrayList<String> ownedVehicles, ArrayList<String> bookedRides, String extrainfo) {
+        super(uid, name, email, userType, ownedVehicles, bookedRides);
         this.extrainfo = extrainfo;
     }
 
