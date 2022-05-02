@@ -18,9 +18,8 @@ import java.util.ArrayList;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
-    Context context;
+    private Context context;
     private ArrayList<Vehicle> vehicleDB;
-    private ArrayList<String> test;
 
 
     public MyAdapter(Context context, ArrayList<Vehicle> vehicleDB) {
@@ -46,9 +45,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, SecundaryActivity.class);
-                intent.putExtra("Name",vehicleDB.get(position).getOwner());
-                intent.putExtra("Available Sits",vehicleDB.get(position).getCapacity());
-                intent.putExtra("Vehicle ID",vehicleDB.get(position).getVehicleID());
+
+                intent.putExtra("vehiclesList", vehicleDB);
+                intent.putExtra("vehiclePosition", position);
+
                 context.startActivity(intent);
             }
         });
@@ -69,10 +69,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            myTextName = itemView.findViewById(R.id.textViewName);
-            myTextAvailableSits = itemView.findViewById(R.id.textViewSits);
+            myTextName = itemView.findViewById(R.id.textViewNameVehicle);
+            myTextAvailableSits = itemView.findViewById(R.id.textViewStatusVehicle);
             mainLayout = itemView.findViewById(R.id.mainLayout);
+
         }
     }
+
+
 
 }

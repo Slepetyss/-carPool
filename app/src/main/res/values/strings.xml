@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Lucas Amazing Car Pool Super App! </string>
+    <string name="no_data_available">No Data Is Available here. Try Again Later... </string>
+
 </resources>

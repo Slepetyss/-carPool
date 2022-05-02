@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.carpool.R;
@@ -41,8 +42,10 @@ public class MainActivity extends AppCompatActivity {
     private String userName;
 
     private ArrayList<Vehicle> vehiclesDB;
-    RecyclerView recyclerView;
-    Context context;
+    private RecyclerView recyclerView;
+    private Context context;
+    private TextView emptyView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         recyclerView = findViewById(R.id.recyclerView);
+        emptyView = findViewById(R.id.empty_view);
+
 
         vehiclesDB = new ArrayList<Vehicle>();
 
@@ -113,10 +118,22 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                     }
+
+                    System.out.println(vehiclesDB.isEmpty());
+                    if (vehiclesDB.isEmpty()) {
+                        recyclerView.setVisibility(View.GONE);
+                        emptyView.setVisibility(View.VISIBLE);
+                    }
+                    else {
+                        recyclerView.setVisibility(View.VISIBLE);
+                        emptyView.setVisibility(View.GONE);
+                    }
+
                     System.out.println(vehiclesDB);
                     MyAdapter myAdapter = new MyAdapter(context, vehiclesDB);
                     recyclerView.setAdapter(myAdapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(context));
+
                     getAllRidesTask.setResult(null);
                 } else {
                     Log.d("MainActivity", "Failed to retrieve info from DB: ", task.getException());

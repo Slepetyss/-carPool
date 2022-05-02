@@ -42,10 +42,12 @@ public class SecundaryActivity extends AppCompatActivity {
 
     private TextView name, sits;
     private String nameText, sitsText, vehicleID;
+    private ArrayList<Vehicle> vehicleArrayList;
+    private int position;
 
     private FirebaseFirestore firestore;
     private FirebaseAuth mAuth;
-    Context context = this;
+    private Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,11 +66,15 @@ public class SecundaryActivity extends AppCompatActivity {
     }
 
     private void getData() {
-        if(getIntent().hasExtra("Name") & getIntent().hasExtra("Available Sits")) {
+        if(getIntent().hasExtra("vehiclesList") & getIntent().hasExtra("vehiclePosition")) {
 
-            nameText = getIntent().getStringExtra("Name");
-            sitsText = getIntent().getStringExtra("Available Sits");
-            vehicleID = getIntent().getStringExtra("Vehicle ID");
+            vehicleArrayList = (ArrayList<Vehicle>)getIntent().getSerializableExtra("vehiclesList");
+            position = (int)getIntent().getSerializableExtra("vehiclePosition");
+
+            nameText = vehicleArrayList.get(position).getOwner();
+            sitsText = vehicleArrayList.get(position).getCapacity();
+            vehicleID = vehicleArrayList.get(position).getVehicleID();
+
 
         } else {
             Toast.makeText(this, "No data...", Toast.LENGTH_SHORT).show();
@@ -170,6 +176,7 @@ public class SecundaryActivity extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), "Vehicle booked!", Toast.LENGTH_LONG).show();
 
-
     }
+
+
 }

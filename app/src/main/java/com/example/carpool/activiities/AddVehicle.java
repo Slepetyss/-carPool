@@ -1,10 +1,13 @@
 package com.example.carpool.activiities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.AdapterView;
@@ -17,14 +20,23 @@ import android.widget.Toast;
 
 import com.example.carpool.R;
 import com.example.carpool.activiities.MainActivity.MainActivity;
+import com.example.carpool.activiities.MainActivity.MyAdapter;
+import com.example.carpool.activiities.MainActivity.OwnedVehicles.OwnedVehicles;
+import com.example.carpool.dictionaries.VehiclesClasses.Vehicle;
 import com.example.carpool.dictionaries.VehiclesClasses.VehicleBicycle;
 import com.example.carpool.dictionaries.VehiclesClasses.VehicleCar;
 import com.example.carpool.dictionaries.VehiclesClasses.VehicleHelicopter;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.android.gms.tasks.TaskCompletionSource;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class AddVehicle extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
@@ -73,6 +85,8 @@ public class AddVehicle extends AppCompatActivity implements AdapterView.OnItemS
     private FirebaseFirestore firestore;
     private FirebaseAuth mAuth;
     private String userName;
+
+    private ArrayList<Vehicle> vehiclesDB;
 
     //Store all fields paths
     HashMap map = new HashMap<String,EditText>();
@@ -207,6 +221,12 @@ public class AddVehicle extends AppCompatActivity implements AdapterView.OnItemS
                 switchPage();
                 break;
         }
+    }
+
+    public void seeOwnedVehicles(View view) {
+        Intent intent = new Intent(this, OwnedVehicles.class);
+        startActivity(intent);
+
     }
 
     public void switchPage() {

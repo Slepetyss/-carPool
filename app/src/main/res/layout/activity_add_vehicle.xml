@@ -31,6 +31,7 @@
         android:background="#3181FB"
         android:backgroundTint="#2F4FF3"
         android:foregroundTint="#3AC561"
+        android:onClick="seeOwnedVehicles"
         android:text="See Owned Vehicles"
         android:textColor="#D2DDFF"
         android:textColorHighlight="#BA6565"
