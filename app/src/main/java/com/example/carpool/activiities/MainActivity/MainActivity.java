@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.example.carpool.R;
 import com.example.carpool.activiities.ActivityAuth;
 import com.example.carpool.activiities.AddVehicle;
+import com.example.carpool.activiities.MainActivity.OwnedVehicles.OwnedVehicles;
 import com.example.carpool.dictionaries.VehiclesClasses.Vehicle;
 import com.example.carpool.dictionaries.VehiclesClasses.VehicleBicycle;
 import com.example.carpool.dictionaries.VehiclesClasses.VehicleCar;
@@ -46,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
     private Context context;
     private TextView emptyView;
 
+    private int images[] = {R.drawable.vehiclebike, R.drawable.vehiclecar, R.drawable.vehicleheli};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         firestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
         introField = findViewById(R.id.introTextField);
+
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -130,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     System.out.println(vehiclesDB);
-                    MyAdapter myAdapter = new MyAdapter(context, vehiclesDB);
+                    MyAdapter myAdapter = new MyAdapter(context, vehiclesDB, images);
                     recyclerView.setAdapter(myAdapter);
                     recyclerView.setLayoutManager(new LinearLayoutManager(context));
 
@@ -146,6 +150,12 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Add new ride page...", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, AddVehicle.class);
         startActivity(intent);
+    }
+
+    public void seeOwnedVehicles(View view) {
+        Intent intent = new Intent(this, OwnedVehicles.class);
+        startActivity(intent);
+
     }
 
     public void signOut(View v) {

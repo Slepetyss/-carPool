@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.carpool.R;
 import com.example.carpool.dictionaries.VehiclesClasses.Vehicle;
+import com.example.carpool.dictionaries.VehiclesClasses.VehicleCar;
+import com.example.carpool.dictionaries.VehiclesClasses.VehicleHelicopter;
 
 import java.util.ArrayList;
 
@@ -20,11 +23,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private Context context;
     private ArrayList<Vehicle> vehicleDB;
+    private int images[];
 
 
-    public MyAdapter(Context context, ArrayList<Vehicle> vehicleDB) {
+    public MyAdapter(Context context, ArrayList<Vehicle> vehicleDB, int images[]) {
         this.context = context;
         this.vehicleDB = vehicleDB;
+        this.images = images;
     }
 
     @NonNull
@@ -38,8 +43,17 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        String extra;
         holder.myTextName.setText(vehicleDB.get(position).getOwner());
         holder.myTextAvailableSits.setText("Available Sits: " + vehicleDB.get(position).getCapacity());
+
+        if (vehicleDB.get(position).getVehicleType().equals("HeliCopter")) {
+            holder.myImage.setImageResource(images[2]);
+        } else if (vehicleDB.get(position).getVehicleType().equals("Bycicle")) {
+            holder.myImage.setImageResource(images[0]);
+        } else if (vehicleDB.get(position).getVehicleType().equals("Car")) {
+            holder.myImage.setImageResource(images[1]);
+        }
 
         holder.mainLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +62,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
                 intent.putExtra("vehiclesList", vehicleDB);
                 intent.putExtra("vehiclePosition", position);
+                intent.putExtra("images", images);
+//                intent.putExtra("extra", extra);
 
                 context.startActivity(intent);
             }
@@ -63,7 +79,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
         TextView myTextName, myTextAvailableSits;
-//        ImageView myImage;
+        ImageView myImage;
 
         ConstraintLayout mainLayout;
 
@@ -72,6 +88,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             myTextName = itemView.findViewById(R.id.textViewNameVehicle);
             myTextAvailableSits = itemView.findViewById(R.id.textViewStatusVehicle);
             mainLayout = itemView.findViewById(R.id.mainLayout);
+            myImage = itemView.findViewById(R.id.imageViewVehicle);
 
         }
     }

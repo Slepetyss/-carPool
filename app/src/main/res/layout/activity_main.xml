@@ -6,12 +6,41 @@
     android:layout_height="match_parent"
     tools:context=".activiities.MainActivity.MainActivity">
 
+    <Button
+        android:id="@+id/selectImgBtn3"
+        style="@style/Widget.AppCompat.Button.Borderless"
+        android:layout_width="288dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="12dp"
+        android:background="#3181FB"
+        android:backgroundTint="#2F4FF3"
+        android:foregroundTint="#3AC561"
+        android:onClick="seeOwnedVehicles"
+        android:text="See Owned Vehicles"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#BA6565"
+        android:textColorHint="#B33E3E"
+        android:textColorLink="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button5"
+        tools:ignore="TextContrastCheck" />
+
     <TextView
         android:id="@+id/empty_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:visibility="gone"
+        android:textColor="#FFB33E3E"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/button2"
+        android:layout_marginTop="46dp"
         android:text="@string/no_data_available" />
 
     <Button
@@ -35,24 +64,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintTop_toBottomOf="@+id/selectImgBtn3" />
 
     <Button
         android:id="@+id/button5"
         style="@style/Widget.AppCompat.Button.Borderless"
         android:layout_width="288dp"
         android:layout_height="57dp"
-        android:layout_marginTop="56dp"
-        android:background="#00FF44"
-        android:backgroundTint="#00FF0F"
+        android:layout_marginTop="16dp"
+        android:background="#01631B"
+        android:backgroundTint="#00B30B"
         android:foregroundTint="#3AC561"
         android:onClick="addNewRide"
-        android:text="Add New Ride / See Owned Rides"
-        android:textColor="#151515"
+        android:text="Create New Ride"
+        android:textColor="#FFFFFF"
         android:textColorHighlight="#BA6565"
         android:textColorHint="#B33E3E"
         android:textColorLink="#000000"
-        android:textSize="16sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:iconTint="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
@@ -79,8 +108,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="388dp"
-        android:layout_height="327dp"
+        android:layout_width="387dp"
+        android:layout_height="291dp"
         app:layout_constraintBottom_toTopOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"

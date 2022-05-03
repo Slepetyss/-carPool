@@ -16,7 +16,7 @@
         <activity
             android:name=".activiities.MainActivity.OwnedVehicles.OwnedVehicles"
             android:exported="false"
-            android:parentActivityName=".activiities.MainActivity.OwnedVehicles.OwnedVehicles"/>
+            android:parentActivityName=".activiities.MainActivity.MainActivity"/>
         <activity
             android:name=".activiities.MainActivity.SecundaryActivity"
             android:exported="false"

@@ -10,7 +10,7 @@
         android:id="@+id/textViewSits2"
         android:layout_width="221dp"
         android:layout_height="55dp"
-        android:layout_marginTop="106dp"
+        android:layout_marginTop="7dp"
         android:text="Avaliable sits: 4"
         android:textAlignment="center"
         android:textColor="#4E4E4E"
@@ -19,20 +19,49 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewPrice" />
 
     <TextView
-        android:id="@+id/textViewName2"
-        android:layout_width="257dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="41dp"
-        android:text="Lucas Slepetys"
+        android:id="@+id/textViewPrice"
+        android:layout_width="332dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="18dp"
+        android:text="$99.99"
         android:textAlignment="center"
-        android:textColor="#4E4E4E"
-        android:textSize="32sp"
+        android:textColor="#BA4A4A"
+        android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.508"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewExtra" />
+
+    <TextView
+        android:id="@+id/textViewExtra"
+        android:layout_width="332dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="11dp"
+        android:text="Extra Info: Extra Info"
+        android:textAlignment="center"
+        android:textColor="#8C8C8C"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewName" />
+
+    <TextView
+        android:id="@+id/textViewName"
+        android:layout_width="332dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="20dp"
+        android:text="Owner: Lucas Slepetys"
+        android:textAlignment="center"
+        android:textColor="#4E4E4E"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -40,7 +69,7 @@
         android:id="@+id/imageView"
         android:layout_width="276dp"
         android:layout_height="231dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="44dp"
         android:src="@android:drawable/ic_menu_gallery"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"

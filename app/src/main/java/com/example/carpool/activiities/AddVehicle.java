@@ -159,7 +159,7 @@ public class AddVehicle extends AppCompatActivity implements AdapterView.OnItemS
         addText(maxAltitudeText, "Max Altitude (M):");
         addInput(maxAltitudeInput, "5000");
         //--
-        addText(maxAirSpeedText, "Max Speed (Km):");
+        addText(maxAirSpeedText, "Max Speed (Km/h):");
         addInput(maxAirSpeedInput, "350");
     }
 
@@ -223,11 +223,6 @@ public class AddVehicle extends AppCompatActivity implements AdapterView.OnItemS
         }
     }
 
-    public void seeOwnedVehicles(View view) {
-        Intent intent = new Intent(this, OwnedVehicles.class);
-        startActivity(intent);
-
-    }
 
     public void switchPage() {
         Toast.makeText(getApplicationContext(), "Vehicle added!", Toast.LENGTH_LONG).show();

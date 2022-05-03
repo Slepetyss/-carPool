@@ -13,6 +13,9 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:visibility="gone"
+        android:textColor="#FFB33E3E"
+        android:textSize="16sp"
+        android:textStyle="bold"
         android:text="@string/no_data_available" />
 
     <TextView

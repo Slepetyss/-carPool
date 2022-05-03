@@ -2,7 +2,6 @@ package com.example.carpool.activiities.MainActivity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,28 +9,22 @@ import android.os.Bundle;
 import android.util.Log;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.carpool.R;
-import com.example.carpool.activiities.ActivityAuth;
 import com.example.carpool.dictionaries.VehiclesClasses.Vehicle;
 import com.example.carpool.dictionaries.VehiclesClasses.VehicleBicycle;
 import com.example.carpool.dictionaries.VehiclesClasses.VehicleCar;
 import com.example.carpool.dictionaries.VehiclesClasses.VehicleHelicopter;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.gms.tasks.TaskCompletionSource;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.firestore.SetOptions;
 
 import java.util.ArrayList;
@@ -40,10 +33,12 @@ import java.util.Map;
 
 public class SecundaryActivity extends AppCompatActivity {
 
-    private TextView name, sits;
-    private String nameText, sitsText, vehicleID;
+    private TextView name, sits, price, extra;
+    private String nameText, sitsText, vehicleID, priceText, extraText;
+    private ImageView myImage;
     private ArrayList<Vehicle> vehicleArrayList;
     private int position;
+    private int images[];
 
     private FirebaseFirestore firestore;
     private FirebaseAuth mAuth;
@@ -54,8 +49,11 @@ public class SecundaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_secundary);
 
-        name = findViewById(R.id.textViewName2);
+        name = findViewById(R.id.textViewName);
         sits = findViewById(R.id.textViewSits2);
+        price = findViewById(R.id.textViewPrice);
+        extra = findViewById(R.id.textViewExtra);
+        myImage = findViewById(R.id.imageView);
 
         firestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
@@ -66,14 +64,31 @@ public class SecundaryActivity extends AppCompatActivity {
     }
 
     private void getData() {
-        if(getIntent().hasExtra("vehiclesList") & getIntent().hasExtra("vehiclePosition")) {
+        if(getIntent().hasExtra("vehiclesList") & getIntent().hasExtra("vehiclePosition") & getIntent().hasExtra("images")) {
 
             vehicleArrayList = (ArrayList<Vehicle>)getIntent().getSerializableExtra("vehiclesList");
             position = (int)getIntent().getSerializableExtra("vehiclePosition");
+            images = (int[])getIntent().getSerializableExtra("images");
+
 
             nameText = vehicleArrayList.get(position).getOwner();
             sitsText = vehicleArrayList.get(position).getCapacity();
+            priceText = vehicleArrayList.get(position).getBasePrice();
             vehicleID = vehicleArrayList.get(position).getVehicleID();
+
+            if (vehicleArrayList.get(position).getVehicleType().equals("HeliCopter")) {
+                myImage.setImageResource(images[2]);
+                VehicleHelicopter vehicleHelicopter = (VehicleHelicopter) vehicleArrayList.get(position);
+                extraText = "Max Air Speed: " + vehicleHelicopter.getMaxAirSpeed() + "Km/h";
+            } else if (vehicleArrayList.get(position).getVehicleType().equals("Bycicle")) {
+                myImage.setImageResource(images[0]);
+                VehicleBicycle vehicleBicycle = (VehicleBicycle) vehicleArrayList.get(position);
+                extraText = "Max Weight: " + vehicleBicycle.getWeightCapacity() + "Kg";
+            } else if (vehicleArrayList.get(position).getVehicleType().equals("Car")) {
+                myImage.setImageResource(images[1]);
+                VehicleCar vehicleCar = (VehicleCar) vehicleArrayList.get(position);
+                extraText = "Driving Range: " + vehicleCar.getRangeKm() + "Km";
+            }
 
 
         } else {
@@ -82,8 +97,12 @@ public class SecundaryActivity extends AppCompatActivity {
     }
 
     private void setData() {
-        name.setText(nameText);
+        name.setText("Owner: " + nameText);
+        System.out.println(nameText);
         sits.setText("Available Sits: " + sitsText);
+        extra.setText(extraText);
+        price.setText("$" + priceText);
+
     }
 
     public void bookRide(View view) {
