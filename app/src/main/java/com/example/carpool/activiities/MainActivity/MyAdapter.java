@@ -43,7 +43,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        String extra;
         holder.myTextName.setText(vehicleDB.get(position).getOwner());
         holder.myTextAvailableSits.setText("Available Sits: " + vehicleDB.get(position).getCapacity());
 
@@ -63,7 +62,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 intent.putExtra("vehiclesList", vehicleDB);
                 intent.putExtra("vehiclePosition", position);
                 intent.putExtra("images", images);
-//                intent.putExtra("extra", extra);
 
                 context.startActivity(intent);
             }
